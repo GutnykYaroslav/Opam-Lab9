@@ -25,7 +25,7 @@
             string numbers = "0123456789";
             string symbols = "!@#$%^&*()_+";
 
-            
+
             if (rbEasy.Checked)
             {
                 chars = letters;
@@ -44,15 +44,15 @@
             else
             {
                 MessageBox.Show("Оберіть складність пароля!");
-                return; 
+                return;
             }
 
-            
+
             if (cbReadFromFile.Checked)
             {
                 try
                 {
-                    
+
                     string fileContent = File.ReadAllText("length.txt");
                     length = int.Parse(fileContent);
                 }
@@ -63,25 +63,41 @@
                 }
             }
 
-           
+
             Random rnd = new Random();
             string password = "";
 
             for (int i = 0; i < length; i++)
             {
                 int randomIndex = rnd.Next(chars.Length);
-                password += chars[randomIndex];         
+                password += chars[randomIndex];
             }
 
-           
+
             txtResult.Text = password;
 
-            
-           
+
+
             File.AppendAllText("passwords.txt", password + Environment.NewLine);
 
             MessageBox.Show("Пароль згенеровано!");
         }
-      }
+
+        private void btnViewPasswords_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("passwords.txt"))
+            {
+               
+                string allPasswords = File.ReadAllText("passwords.txt");
+
+                
+                MessageBox.Show(allPasswords, "Ваші збережені паролі");
+            }
+            else
+            {
+                MessageBox.Show("Ви ще не згенерували жодного пароля!", "Помилка");
+            }
+        }
     }
+}
 

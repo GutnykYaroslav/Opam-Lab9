@@ -34,6 +34,7 @@
             cbReadFromFile = new CheckBox();
             btGenerate = new Button();
             txtResult = new TextBox();
+            btnViewPasswords = new Button();
             SuspendLayout();
             // 
             // rbEasy
@@ -83,7 +84,7 @@
             // 
             // btGenerate
             // 
-            btGenerate.Location = new Point(285, 228);
+            btGenerate.Location = new Point(151, 228);
             btGenerate.Name = "btGenerate";
             btGenerate.Size = new Size(200, 88);
             btGenerate.TabIndex = 4;
@@ -93,16 +94,27 @@
             // 
             // txtResult
             // 
-            txtResult.Location = new Point(285, 195);
+            txtResult.Location = new Point(344, 195);
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(125, 27);
             txtResult.TabIndex = 5;
+            // 
+            // btnViewPasswords
+            // 
+            btnViewPasswords.Location = new Point(466, 228);
+            btnViewPasswords.Name = "btnViewPasswords";
+            btnViewPasswords.Size = new Size(200, 88);
+            btnViewPasswords.TabIndex = 6;
+            btnViewPasswords.Text = "Подивитись паролі";
+            btnViewPasswords.UseVisualStyleBackColor = true;
+            btnViewPasswords.Click += btnViewPasswords_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnViewPasswords);
             Controls.Add(txtResult);
             Controls.Add(btGenerate);
             Controls.Add(cbReadFromFile);
@@ -123,5 +135,6 @@
         private CheckBox cbReadFromFile;
         private Button btGenerate;
         private TextBox txtResult;
+        private Button btnViewPasswords;
     }
 }
